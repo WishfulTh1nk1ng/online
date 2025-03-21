@@ -1,26 +1,163 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-	<meta http-equiv="content-type" content="text/html; charset=utf-8"/>
-	<title></title>
-	<meta name="generator" content="LibreOffice 24.2.3.2 (Linux)"/>
-	<meta name="created" content="2024-06-02T22:23:09.230415326"/>
-	<meta name="changed" content="2024-06-02T22:28:22.165379686"/>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Your Name | Resume</title>
+  <style>
+    :root {
+      --primary: #2c3e50;
+      --accent: #3498db;
+      --bg: #f9f9f9;
+      --text: #333;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    header {
+      background: var(--primary);
+      color: white;
+      padding: 2rem 1rem;
+      text-align: center;
+    }
+
+    header h1 {
+      font-size: 2.5rem;
+      margin-bottom: 0.2rem;
+    }
+
+    header p {
+      font-size: 1.2rem;
+      color: #ccc;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: auto;
+      padding: 2rem 1rem;
+    }
+
+    section {
+      margin-bottom: 2.5rem;
+    }
+
+    h2 {
+      color: var(--primary);
+      border-bottom: 2px solid var(--accent);
+      padding-bottom: 0.4rem;
+      margin-bottom: 1rem;
+    }
+
+    .skills, .projects {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .skill, .project {
+      background: white;
+      border: 1px solid #ddd;
+      padding: 1rem;
+      flex: 1 1 calc(50% - 1rem);
+      border-radius: 8px;
+    }
+
+    .experience-item {
+      margin-bottom: 1.5rem;
+    }
+
+    .experience-item h3 {
+      margin-bottom: 0.2rem;
+    }
+
+    .contact {
+      background: var(--primary);
+      color: white;
+      text-align: center;
+      padding: 2rem 1rem;
+    }
+
+    .contact p {
+      margin-bottom: 0.5rem;
+    }
+
+    @media (max-width: 768px) {
+      .skill, .project {
+        flex: 1 1 100%;
+      }
+    }
+  </style>
 </head>
-<body lang="en-US" dir="ltr">
-<h1>Hello World</h1> 
+<body>
 
-<p>This is my website, there are many like it, but
-this one is mine.</p>
-<h2>Intro</h2>
-	<p>Things will go here, and they will be awesome!</p>
-<h2>More stuff</h2>
-<p>Then I will rule the world!!!</p>
+  <header>
+    <h1>Your Name</h1>
+    <p>Financial Planner | Technologist | Excel & Python Expert</p>
+  </header>
 
-<br/>
-<br/>
+  <div class="container">
 
-</p>
+    <section id="about">
+      <h2>About Me</h2>
+      <p>A brief, compelling paragraph about your background, values, and what makes you stand out. Focus on your unique combination of financial planning and IT expertise.</p>
+    </section>
+
+    <section id="skills">
+      <h2>Skills</h2>
+      <div class="skills">
+        <div class="skill">Financial Planning</div>
+        <div class="skill">Python & Pandas</div>
+        <div class="skill">Excel & VBA</div>
+        <div class="skill">Client Communication</div>
+        <div class="skill">Cybersecurity Awareness</div>
+        <div class="skill">Tech Troubleshooting</div>
+      </div>
+    </section>
+
+    <section id="experience">
+      <h2>Experience</h2>
+      <div class="experience-item">
+        <h3>Senior Financial Advisor – Firm Name</h3>
+        <p><em>2018 – Present</em></p>
+        <p>Describe your role, key responsibilities, and notable achievements, especially where tech has improved processes or client experience.</p>
+      </div>
+      <!-- Add more experience blocks here -->
+    </section>
+
+    <section id="projects">
+      <h2>Projects</h2>
+      <div class="projects">
+        <div class="project">
+          <h4>Automated Reporting Tool</h4>
+          <p>Built with Python and VBA to streamline client reporting. Reduced prep time by 60%.</p>
+        </div>
+        <div class="project">
+          <h4>OneNote Team Template</h4>
+          <p>Created a standardized template for efficient team meetings and compliance documentation.</p>
+        </div>
+      </div>
+    </section>
+
+  </div>
+
+  <footer class="contact">
+    <h2>Contact</h2>
+    <p>Email: you@email.com</p>
+    <p>LinkedIn: linkedin.com/in/yourname</p>
+    <p>GitHub: github.com/yourname</p>
+  </footer>
 
 </body>
 </html>
+
