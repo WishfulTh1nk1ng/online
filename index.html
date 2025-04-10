@@ -1,269 +1,704 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Your Name | Resume</title>
-  <style>
-    :root {
-      --primary: #2c3e50;
-      --accent: #3498db;
-      --bg: #f9f9f9;
-      --text: #333;
-    }
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Jim Miller | Financial Planner & Tech Expert</title>
+    <style>
+        :root {
+            --primary: #1a365d;
+            --secondary: #2c5282;
+            --accent: #3182ce;
+            --accent-light: #4299e1;
+            --bg: #f7fafc;
+            --text: #2d3748;
+            --light-text: #4a5568;
+            --card-bg: #ffffff;
+            --section-bg: #edf2f7;
+            --dark-bg: #2d3748;
+        }
 
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-    body {
-      font-family: 'Segoe UI', sans-serif;
-      background: var(--bg);
-      color: var(--text);
-      line-height: 1.6;
-    }
+        body {
+            font-family: 'Segoe UI', Roboto, -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.7;
+        }
 
-    header {
-      background: var(--primary);
-      color: white;
-      padding: 2rem 1rem;
-      text-align: center;
-    }
+        /* Scrollbar styling */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
 
-    header h1 {
-      font-size: 2.5rem;
-      margin-bottom: 0.2rem;
-    }
+        ::-webkit-scrollbar-track {
+            background: var(--bg);
+        }
 
-    header p {
-      font-size: 1.2rem;
-      color: #ccc;
-    }
+        ::-webkit-scrollbar-thumb {
+            background: var(--accent);
+            border-radius: 5px;
+        }
 
-    .container {
-      max-width: 900px;
-      margin: auto;
-      padding: 2rem 1rem;
-    }
+        .page-wrapper {
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
 
-    section {
-      margin-bottom: 2.5rem;
-    }
+        header {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            color: white;
+            padding: 0;
+            position: relative;
+            overflow: hidden;
+        }
 
-    h2 {
-      color: var(--primary);
-      border-bottom: 2px solid var(--accent);
-      padding-bottom: 0.4rem;
-      margin-bottom: 1rem;
-    }
+        .header-content {
+            padding: 5rem 2rem;
+            position: relative;
+            z-index: 2;
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
 
-    .notice {
-      text-align: center;
-      margin: 2rem auto;
-      padding: 1rem;
-      max-width: 600px;
-      background-color: #eef6fb;
-      border-left: 4px solid var(--accent);
-      border-radius: 8px;
-      font-style: italic;
-    }
-    
-    .notice img {
-      display: block;
-      margin: 0 auto;
-    }
+        /* Animated background elements */
+        .header-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+        }
 
-    .skills, .projects {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 1rem;
-    }
-    .skill {
-      background: var(--accent);
-      color: white;
-      padding: 0.6rem 1rem;
-      border-radius: 50px;
-      text-align: center;
-      font-weight: 600;
-      cursor: default;
-      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-      transition: background 0.3s ease;
-    }
+        .bg-circle {
+            position: absolute;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 50%;
+        }
 
-    .skill:hover {
-      background: #217dbb;
-    }
-    
+        .bg-circle:nth-child(1) {
+            width: 300px;
+            height: 300px;
+            top: -100px;
+            left: -100px;
+        }
 
-    .project {
-      background: white;
-      border: 1px solid #ddd;
-      padding: 1rem;
-      flex: 1 1 calc(50% - 1rem);
-      border-radius: 8px;
-    }
+        .bg-circle:nth-child(2) {
+            width: 200px;
+            height: 200px;
+            bottom: -50px;
+            right: 10%;
+        }
 
-    .experience-item {
-      margin-bottom: 1.5rem;
-    }
+        .bg-circle:nth-child(3) {
+            width: 150px;
+            height: 150px;
+            top: 30%;
+            right: 20%;
+        }
 
-    .experience-item h3 {
-      margin-bottom: 0.2rem;
-    }
+        header h1 {
+            font-size: 3.5rem;
+            margin-bottom: 0.5rem;
+            font-weight: 700;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        }
 
-    .contact {
-      background: var(--primary);
-      color: white;
-      text-align: center;
-      padding: 2rem 1rem;
-    }
+        header p {
+            font-size: 1.4rem;
+            color: rgba(255, 255, 255, 0.9);
+            max-width: 700px;
+            margin: 0 auto;
+        }
 
-    .contact p {
-      margin-bottom: 0.5rem;
-    }
+        .tagline-items {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
 
-    @media (max-width: 768px) {
-      .skill, .project {
-        flex: 1 1 100%;
-      }
-    }
-  </style>
+        .tagline-item {
+            padding: 0.4rem 1rem;
+            background: rgba(255, 255, 255, 0.15);
+            border-radius: 50px;
+            font-weight: 500;
+            backdrop-filter: blur(5px);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0;
+        }
+
+        section {
+            padding: 4rem 2rem;
+        }
+
+        section:nth-child(even) {
+            background: var(--section-bg);
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        h2 {
+            color: var(--primary);
+            font-size: 2.2rem;
+            position: relative;
+            display: inline-block;
+            margin-bottom: 1rem;
+        }
+
+        h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: var(--accent);
+            border-radius: 2px;
+        }
+
+        .about-content {
+            max-width: 900px;
+            margin: 0 auto;
+            font-size: 1.1rem;
+            text-align: center;
+            color: var(--light-text);
+        }
+
+        .skills-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 1.2rem;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .skill {
+            background: var(--card-bg);
+            color: var(--text);
+            padding: 1.5rem;
+            border-radius: 12px;
+            text-align: center;
+            width: calc(33.333% - 1.2rem);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 200px;
+        }
+
+        .skill:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 16px rgba(0, 0, 0, 0.1);
+        }
+
+        .skill-icon {
+            background: var(--accent-light);
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        .skill h3 {
+            font-size: 1.3rem;
+            margin-bottom: 0.8rem;
+            color: var(--primary);
+        }
+
+        .skill p {
+            font-size: 0.95rem;
+            color: var(--light-text);
+        }
+
+        .experience-timeline {
+            max-width: 900px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .experience-timeline::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 4px;
+            background: var(--accent-light);
+            z-index: 1;
+        }
+
+        .experience-item {
+            margin-bottom: 4rem;
+            position: relative;
+            z-index: 2;
+            width: calc(50% - 40px);
+        }
+
+        .experience-item:nth-child(odd) {
+            margin-left: auto;
+        }
+
+        .experience-content {
+            background: var(--card-bg);
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            position: relative;
+        }
+
+        .experience-content::before {
+            content: '';
+            position: absolute;
+            top: 24px;
+            width: 20px;
+            height: 20px;
+            background: var(--accent);
+            border-radius: 50%;
+        }
+
+        .experience-item:nth-child(odd) .experience-content::before {
+            left: -50px;
+        }
+
+        .experience-item:nth-child(even) .experience-content::before {
+            right: -50px;
+        }
+
+        .experience-content h3 {
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+            font-size: 1.4rem;
+        }
+
+        .experience-content em {
+            color: var(--accent);
+            font-weight: 600;
+            display: block;
+            margin-bottom: 1rem;
+        }
+
+        .experience-content ul {
+            padding-left: 1.2rem;
+        }
+
+        .experience-content li {
+            margin-bottom: 0.5rem;
+            color: var(--light-text);
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 2rem;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .project {
+            background: var(--card-bg);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
+        }
+
+        .project:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.12);
+        }
+
+        .project-image {
+            height: 200px;
+            background: var(--accent);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 3rem;
+            font-weight: bold;
+        }
+
+        .project-content {
+            padding: 1.5rem;
+        }
+
+        .project h4 {
+            color: var(--primary);
+            font-size: 1.4rem;
+            margin-bottom: 0.8rem;
+        }
+
+        .project p {
+            color: var(--light-text);
+        }
+
+        .contact {
+            background: linear-gradient(135deg, var(--dark-bg) 0%, var(--primary) 100%);
+            color: white;
+            text-align: center;
+            padding: 4rem 2rem;
+        }
+
+        .contact h2 {
+            color: white;
+        }
+
+        .contact h2::after {
+            background: white;
+        }
+
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+            margin-top: 2rem;
+        }
+
+        .contact-item {
+            padding: 1.5rem;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            backdrop-filter: blur(5px);
+            min-width: 250px;
+            transition: all 0.3s ease;
+        }
+
+        .contact-item:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-5px);
+        }
+
+        .contact-icon {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .contact-item a {
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            display: block;
+        }
+
+        .footer {
+            background: var(--dark-bg);
+            color: rgba(255, 255, 255, 0.7);
+            text-align: center;
+            padding: 1.5rem;
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 1000px) {
+            .experience-timeline::before {
+                left: 20px;
+            }
+
+            .experience-item {
+                width: calc(100% - 60px);
+                margin-left: 60px !important;
+            }
+
+            .experience-item:nth-child(odd) .experience-content::before,
+            .experience-item:nth-child(even) .experience-content::before {
+                left: -40px;
+                right: auto;
+            }
+        }
+
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2.5rem;
+            }
+
+            header p {
+                font-size: 1.1rem;
+            }
+
+            .skill {
+                width: calc(50% - 1.2rem);
+            }
+
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 500px) {
+            .skill {
+                width: 100%;
+            }
+
+            .header-content {
+                padding: 3rem 1rem;
+            }
+
+            section {
+                padding: 3rem 1rem;
+            }
+        }
+    </style>
 </head>
+
 <body>
+    <div class="page-wrapper">
+        <header>
+            <div class="header-bg">
+                <div class="bg-circle"></div>
+                <div class="bg-circle"></div>
+                <div class="bg-circle"></div>
+            </div>
+            <div class="header-content">
+                <h1>Jim Miller, <strong>CFP<sup>&reg;</sup></strong></h1>
+                <div class="tagline-items">
+                    <span class="tagline-item">Financial Planner</span>
+                    <span class="tagline-item">AI Consultant</span>
+                    <span class="tagline-item">Technologist</span>
+                    <span class="tagline-item">Excel & Python Expert</span>
+                </div>
+            </div>
+        </header>
 
-  <header>
-    <h1>Jim Miller, <strong>CFP<sup>&reg;</sup></strong></h1>
-    <p>Financial Planner | AI Consultant | Technologist | Excel & Python Expert</p>
-  </header>
+        <div class="container">
+            <section id="about">
+                <div class="section-header">
+                    <h2>About Me</h2>
+                </div>
+                <div class="about-content">
+                    <p>I guide individuals, families and business owners through life’s most complex financial decisions with clarity,
+                        confidence, and purpose - bringing the structured mindset of a U.S. Navy veteran, the precision of a
+                        CERTIFIED FINANCIAL PLANNER®, and a deep passion for operational efficiency. With over a decade
+                        of experience in financial advisory and a background in IT consulting, I
+                        bring a unique perspective to the planning process—one that values both personal connection and
+                        process
+                        optimization.
 
-  <div class="container">
-    <!--
-    <section class="notice">
-      <h1>This site is under construction. </h1>
-      <img src="https://cdn.pixabay.com/photo/2017/10/26/17/51/under-construction-2891888_1280.jpg" 
-       alt="Under Construction image" 
-       width="200" 
-       height="200" 
-       style="border-radius: 200px;" />
-    
-    </section>
-    -->
-    
-    <section id="about">
-      <h2>About Me</h2>
-      <p>With a rare blend of financial planning expertise and deep IT proficiency, I bring a strategic and tech-forward approach to serving clients. As 
-        a trusted financial advisor and the go-to tech resource within my firm, I’ve built a reputation for simplifying complex problems—whether it's 
-        crafting tailored retirement strategies or automating reporting systems using Python, Excel, and VBA. My core values—clarity, integrity, 
-        and innovation—drive me to deliver solutions that are not only financially sound but also operationally efficient. I stand out by bridging the 
-        gap between personal finance and technology, helping both clients and teams make smarter, faster, and more informed decisions.</p>
-    </section>
+                        My mission is to deliver strategic, fiduciary-centered financial guidance while simultaneously
+                        driving innovation
+                        behind the scenes. From automating reporting systems to refining internal workflows, I leverage
+                        technology to
+                        support firm-wide scalability, reduce inefficiencies, and elevate the client experience. By
+                        bridging financial
+                        planning and systems thinking, I aim to be a catalyst for sustainable growth—for both the
+                        clients I serve and the
+                        team I work alongside</p>
+                </div>
+            </section>
 
-    <section id="skills">
-      <h2>Skills</h2>
-      <div class="skills">
-        <div class="skill">Financial Planning</div>
-        <div class="skill">Python & Pandas</div>
-        <div class="skill">Excel & VBA</div>
-        <div class="skill">Client Communication</div>
-        <div class="skill">Cybersecurity Awareness</div>
-        <div class="skill">Tech Troubleshooting</div>
-      </div>
-    </section>
+            <section id="skills">
+                <div class="section-header">
+                    <h2>Core Expertise</h2>
+                </div>
+                <div class="skills-container">
+                    <div class="skill">
+                        <div class="skill-icon">FP</div>
+                        <h3>Financial Planning</h3>
+                        <p>Comprehensive financial strategies with a fiduciary approach to client success</p>
+                    </div>
+                    <div class="skill">
+                        <div class="skill-icon">CC</div>
+                        <h3>Client Communication</h3>
+                        <p>Translating complex financial concepts into actionable client insights</p>
+                    </div>
+                    <div class="skill">
+                        <div class="skill-icon">PY</div>
+                        <h3>Python Development</h3>
+                        <p>Engineering solutions to organize client data, advance CRM hygiene, and support scalable advisory operations</p>
+                    </div>
+                    <div class="skill">
+                        <div class="skill-icon">XL</div>
+                        <h3>Excel & VBA</h3>
+                        <p>Advanced spreadsheet development and macro automation for business efficiency</p>
+                    </div>
+                    
+                    <div class="skill">
+                        <div class="skill-icon">CS</div>
+                        <h3>Cybersecurity</h3>
+                        <p>Protecting sensitive financial data with modern security best practices</p>
+                    </div>
+                    <div class="skill">
+                        <div class="skill-icon">TS</div>
+                        <h3>Tech Troubleshooting</h3>
+                        <p>Resolving technical challenges to maintain operational continuity</p>
+                    </div>
+                </div>
+            </section>
 
-    <section id="experience">
-  <h2>Experience</h2>
+            <section id="experience">
+                <div class="section-header">
+                    <h2>Professional Journey</h2>
+                </div>
+                <div class="experience-timeline">
+                    <div class="experience-item">
+                        <div class="experience-content">
+                            <h3>Certified Financial Planner<sup>&reg;</sup></h3>
+                            <em>Foresight Financial Management & BL&C | 2011 – Present</em>
+                            <ul>
+                                <li>Develop and deliver comprehensive, client-focused financial plans while serving in a
+                                    fiduciary capacity.</li>
+                                <li>Coordinate multi-disciplinary advisory teams (Tax, Legal, Estate) as Lead Advisor to
+                                    ensure cohesive client strategies.</li>
+                                <li>Grow and manage client relationships through referrals and strategic lead
+                                    generation.</li>
+                                <li>Monitor investment strategies with both active and passive firms.</li>
+                            </ul>
+                        </div>
+                    </div>
 
-  <div class="experience-item">
-    <h3>Certified Financial Planner<sup>&reg;</sup> – Foresight Financial Management & BL&C</h3>
-    <p><em>Indianapolis, IN | July 2011 – Present</em></p>
-    <ul>
-      <li>Develop and deliver comprehensive, client-focused financial plans while serving in a fiduciary capacity.</li>
-      <li>Coordinate multi-disciplinary advisory teams (Tax, Legal, Estate) as Lead Advisor to ensure cohesive client strategies.</li>
-      <li>Grow and manage client relationships through referrals and strategic lead generation.</li>
-      <li>Facilitate regular client reviews to proactively address financial plan adjustments based on life or business changes.</li>
-      <li>Monitor investment strategies with both active and passive firms.</li>
-    </ul>
-  </div>
+                    <div class="experience-item">
+                        <div class="experience-content">
+                            <h3>Owner/Operator</h3>
+                            <em>OmniHD | 2008 – 2011</em>
+                            <ul>
+                                <li>Led client consultations to define requirements and manage end-to-end IT
+                                    implementation projects.</li>
+                                <li>Designed, installed, and migrated client IT systems across diverse environments.
+                                </li>
+                                <li>Managed full sales lifecycle from prospecting to post-implementation support.</li>
+                            </ul>
+                        </div>
+                    </div>
 
-  <div class="experience-item">
-    <h3>Owner/Operator – OmniHD</h3>
-    <p><em>Nashville, TN | July 2008 – July 2011</em></p>
-    <ul>
-      <li>Led client consultations to define requirements and manage end-to-end IT implementation projects.</li>
-      <li>Designed, installed, and migrated client IT systems across diverse environments.</li>
-      <li>Managed full sales lifecycle from prospecting to post-implementation support.</li>
-    </ul>
-  </div>
+                    <div class="experience-item">
+                        <div class="experience-content">
+                            <h3>Regional Project Manager</h3>
+                            <em>Nexlink AMBroadband | 2005 – 2008</em>
+                            <ul>
+                                <li>Launched and scaled CATV operations across multiple U.S. markets, enhancing project
+                                    efficiency and timelines.</li>
+                                <li>Designed aggressive growth strategies that expanded revenue by over 400% in under a
+                                    year, yielding $3.1M+ in new annual income.</li>
+                                <li>Managed all facets of team operations, including recruitment, training, and
+                                    logistics.</li>
+                            </ul>
+                        </div>
+                    </div>
 
-  <div class="experience-item">
-    <h3>Regional Project Manager – Nexlink AMBroadband</h3>
-    <p><em>Sunrise, FL | May 2005 – July 2008</em></p>
-    <ul>
-      <li>Launched and scaled CATV operations across multiple U.S. markets, enhancing project efficiency and timelines.</li>
-      <li>Designed aggressive growth strategies that expanded revenue by over 400% in under a year, yielding $3.1M+ in new annual income.</li>
-      <li>Managed all facets of team operations, including recruitment, training, safety compliance, payroll coordination, and logistics.</li>
-    </ul>
-  </div>
+                    <div class="experience-item">
+                        <div class="experience-content">
+                            <h3>Director of Business Development</h3>
+                            <em>Vista Technologies International | 2004 – 2005</em>
+                            <ul>
+                                <li>Liaised between clients and software developers throughout the full SDLC.</li>
+                                <li>Monitored market trends and capitalized on emerging business opportunities.</li>
+                            </ul>
+                        </div>
+                    </div>
 
-  <div class="experience-item">
-    <h3>Director of Business Development – Vista Technologies International</h3>
-    <p><em>Miami Lakes, FL | April 2004 – April 2005</em></p>
-    <ul>
-      <li>Liaised between clients and software developers throughout the full SDLC.</li>
-      <li>Monitored market trends and capitalized on emerging business opportunities.</li>
-      <li>Delivered compelling sales presentations to clients and prospects.</li>
-    </ul>
-  </div>
+                    <div class="experience-item">
+                        <div class="experience-content">
+                            <h3>Founder and President</h3>
+                            <em>Ford Computer Service | 2002 – 2005</em>
+                            <ul>
+                                <li>Specialized in designing and supporting network infrastructure for small businesses
+                                    and schools.</li>
+                                <li>Managed all phases of infrastructure design and implementation.</li>
+                            </ul>
+                        </div>
+                    </div>
 
-  <div class="experience-item">
-    <h3>Founder and President – Ford Computer Service</h3>
-    <p><em>Fort Lauderdale, FL | May 2002 – April 2005</em></p>
-    <ul>
-      <li>Specialized in designing and supporting network infrastructure for small businesses and schools.</li>
-      <li>Managed all phases of infrastructure design and implementation.</li>
-    </ul>
-  </div>
+                    <div class="experience-item">
+                        <div class="experience-content">
+                            <h3>U.S. Navy – NCO</h3>
+                            <em>GM MK 41 Vertical Launch System Petty Officer | 1995 – 1999</em>
+                            <ul>
+                                <li>Honorably Discharged after serving aboard naval vessels.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
 
-  <div class="experience-item">
-    <h3>Co-Founder – NSS Datacom</h3>
-    <p><em>Plantation, FL | September 1999 – April 2002</em></p>
-    <ul>
-      <li>Specialized in network infrastructure and administration for $1.8M in accounts.</li>
-    </ul>
-  </div>
-
-  <div class="experience-item">
-    <h3>U.S. Navy – NCO, GM MK 41 Vertical Launch System Petty Officer</h3>
-    <p><em>July 1995 – July 1999 | Honorably Discharged</em></p>
-  </div>
-</section>
-
-
-    <section id="projects">
-      <h2>Projects</h2>
-      <div class="projects">
-        <div class="project">
-          <h4>Automated Reporting Tool</h4>
-          <p>Built with Python and VBA to streamline client reporting. Reduced prep time by 60%.</p>
+            <section id="projects">
+                <div class="section-header">
+                    <h2>Featured Projects</h2>
+                </div>
+                <div class="projects-grid">
+                    <div class="project">
+                        <div class="project-image">Reporting</div>
+                        <div class="project-content">
+                            <h4>Automated Reporting Tool</h4>
+                            <p>Built with Python and VBA to streamline client reporting. Reduced preparation time by 60%
+                                while improving accuracy and consistency of firm reporting and documents.</p>
+                        </div>
+                    </div>
+                    <div class="project">
+                        <div class="project-image">CRM Optimization</div>
+                        <div class="project-content">
+                            <h4>CRM Data Optimization Tool</h4>
+                            <p>Designed and implemented a Python-based utility to clean, deduplicate, and restructure client data within the firm’s CRM system. The solution reduced manual data entry, improved record accuracy, and supported scalable advisor workflows. This tool now plays a central role in maintaining a high-integrity client database used across multiple departments..</p>
+                        </div>
+                    </div>
+                    <div class="project">
+                        <div class="project-image">Automation</div>
+                        <div class="project-content">
+                            <h4>Outlook Email Automation</h4>
+                            <p>Built a hybrid automation system using Python (win32com), Outlook VBA, and custom rule sets to streamline email triage, automate recurring communications, and surface action items.</p>
+                        </div>
+                    </div>
+                    <div class="project">
+                        <div class="project-image">OneNote</div>
+                        <div class="project-content">
+                            <h4>OneNote Review Template</h4>
+                            <p>Created a streamlined workflow system using custom-built templates, with shared resources, to standardize advisor-client meeting prep, note-taking, and follow-ups.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
         </div>
-        <div class="project">
-          <h4>OneNote Team Template</h4>
-          <p>Created a standardized template for efficient team meetings and compliance documentation.</p>
+
+        <footer class="contact">
+            <div class="section-header">
+                <h2>Get In Touch</h2>
+            </div>
+            <div class="contact-info">
+                <div class="contact-item">
+                    <div class="contact-icon">✉️</div>
+                    <a href="mailto:jimmiller77@gmail.com">jimmiller77@gmail.com</a>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-icon">👨‍💼</div>
+                    <a href="https://linkedin.com/in/jimmiller77" target="_blank">linkedin.com/in/jimmiller77</a>
+                </div>
+            </div>
+        </footer>
+
+        <div class="footer">
+            <p>&copy; 2025 Jim Miller, CFP<sup>&reg;</sup>. All rights reserved.</p>
         </div>
-      </div>
-    </section>
-
-  </div>
-
-  <footer class="contact">
-    <h2>Contact</h2>
-    <p>Email: jimmiller77@gmail.com</p>
-    <p>LinkedIn: linkedin.com/in/jimmiller77</p>
-    
-  </footer>
-
+    </div>
 </body>
-</html>
 
+</html>
