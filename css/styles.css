@@ -185,8 +185,10 @@ header {
     bottom: -2px;
     left: 0;
     width: 100%;
-    line-height: 0;
+    height: 15px;
     z-index: 2;
+    background: linear-gradient(to right, transparent 0%, var(--bg) 20%, var(--bg) 80%, transparent 100%);
+
 }
 
 .header-wave svg, .footer-wave svg {
@@ -206,7 +208,7 @@ header {
     background-clip: text;
     -webkit-background-clip: text;
     color: transparent;
-    animation: glow 3s ease-in-out infinite alternate;
+    animation: glow 2s ease-in-out infinite alternate;
 }
 
 @keyframes glow {
